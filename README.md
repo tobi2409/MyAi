@@ -36,4 +36,10 @@ Starting with having goals and ending with solving by the evaluation of the Anal
 You also could imagine that not all options are available to try like it is in the real world.
 Because e.g. you haven't got the necessary physical strength to inspect something or missing materials.
 
+You can test this Backend by the Test-Modules which are available in the project.
+Note that the Run-Frontend which combines all of the Ai-Methods is in development.
+
 TODO: Inspect/Analyze instead of a single Index a part of the Vector.
+
+If you like the project, you can participate on the development and ask if you have some questions
+Mail: tbshollstein@gmail.com
