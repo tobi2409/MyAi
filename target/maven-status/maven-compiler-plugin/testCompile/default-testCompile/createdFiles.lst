@@ -1,0 +1,5 @@
+logic/AiLogicTest.class
+testwrapper/Wrapper.class
+logic/VectorLogicTest.class
+frontends/SampleFrontEndTest.class
+testfactory/Factory.class
