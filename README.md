@@ -45,3 +45,5 @@ TODO: Inspect/Analyze instead of a single Index a part of the Vector.
 
 If you like the project, you can participate on the development and ask if you have some questions
 Mail: tbshollstein@gmail.com
+
+Wiki: https://github.com/tobi2409/MyAi/wiki
