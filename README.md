@@ -10,6 +10,8 @@ And imagine we don't have procreation and we aren't interested in exploring the 
 The difference is that we wouldn't have any emotions because when we don't need anything,
 we wouldn't have any goals and that leads that we won't need to fight for something.
 
+![alt text](https://imagizer.imageshack.com/img924/8711/Z4EEGu.png)
+
 By this my Artifical Intelligence implements a sample World called 'Vector'.
 This sample vector isn't complexe because this sample should only demonstrate on an easy way how Intelligence works.
 In my test cases you can find some generated vectors.
