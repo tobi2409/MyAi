@@ -1,5 +1,7 @@
 # Artifical Intelligence - Sample Application by Tobias Hollstein 2019
 
+(Test it by Test Case-Class: AiLogicTest)
+
 This Application demonstrates a sample functionality of an Artifical Intelligence.
 The fundamental idea to realize an artifical Intelligence, you must be clear what is Intelligence.
 There are different opinions about the word 'Intelligence'. So we have to rethink about this topic.
