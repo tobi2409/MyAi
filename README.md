@@ -1,51 +1,24 @@
-# Artifical Intelligence - Sample Application by Tobias Hollstein 2019
+# Artificial Intelligence - Sample Application by Tobias Hollstein 2019
 
-(Test it by Test Case-Class: AiLogicTest)
+A human has several options to change something in the world. So he can use his muscle power to affect other particles. If you are in the phase where you are still exploring the world, you are gaining experience and because you are pursuing certain goals based on your emotions (e.g. no hunger), some of the experiences are considered pleasant, others unpleasant. Not every action leads to the goal being achieved. When I, as a human being, decide on an action (option), I remember whether and how often this applied option has fulfilled my goal.
 
-This Application demonstrates a sample functionality of an Artifical Intelligence.
-The fundamental idea to realize an artifical Intelligence, you must be clear what is Intelligence.
-There are different opinions about the word 'Intelligence'. So we have to rethink about this topic.
+The sample world in this application is a vector with truth values, so you can keep it simple for now. There are 3 options (actions) how to influence this world. The first option causes any true value in the vector to get wrong if the value on the next position is wrong. The second option inverts the values. The third option sets all values to true.
 
-We have to think about what we would do if we could live in the universe and we don't need food or oxygen to survive.
-We live/survive no matter what happens. We also haven't got all inventions/languages which are available nowadays.
-And imagine we don't have procreation and we aren't interested in exploring the universe.
-The difference is that we wouldn't have any emotions because when we don't need anything,
-we wouldn't have any goals and that leads that we won't need to fight for something.
+![alt text](https://imagizer.imageshack.com/img924/4674/5BOurv.png)
 
-![alt text](https://imagizer.imageshack.com/img924/8711/Z4EEGu.png)
+As soon as man acts, he does not see the effects that his action has on the whole universe, but only on a small part. Therefore, when exploring the world (method: inspect in AiLogic), only one index is considered in the array. The result of this method is a list of InspectionEntries. An InspectionEntry contains the value as it was before the action, the value after the action, the position (index) and the option.
 
-By this my Artifical Intelligence implements a sample World called 'Vector'.
-This sample vector isn't complexe because this sample should only demonstrate on an easy way how Intelligence works.
-In my test cases you can find some generated vectors.
-With the VectorLogic you can influence the Vector by passing an Option.
-An option is that what you are able to do to influence the elements of the world.
-The options are similar to our muscles or the force of our particles.
-We can influence elements of the world with forces or with our muscles.
+The "analyze" method uses the InspectionList to count how often a certain "after value" has arisen for a "before value". The parameters "compareProperty" and "comparePropertyValue" can be used to specify whether only a certain option (action) or only a certain index (position) is to be taken into account for the count.
+The "analyzePrecise" method examines several values of a property. (e.g.: several options or several positions).
+If the method "analyze" contains only one entry, because there was always only one "after value" in the count, the combination of the "before value" with e.g. the option is considered universal.
+The method "traceGoal" is used to search for a fixed "after value" from the InspectionList and with the help of the InspectionEntry you know that for the "before value" and this option or this index (depending on) times the "after value" has been created, which you have set as the target. And then you can analyze how often this "after value" was created and how often another "after value" came out, which may not be desired as a target.
 
-With the AiLogic we are able to inspect the vector and compare which change of the world is most common.
-You can imagine this with following simple example.
-There are 4 pots. You want to know what would be happen with the pots when you do something.
-You have many options provided by your physical strength (muscles) you are able to do with the pots.
-One option is to knock the pot. So you can inspect easily all of the pots what are happening by knocking.
-So imagine 3 of the 4 pots sound by doing this option.
-The AnalyzeMap compares how often the pot sounds.
-So if you are looking for a goal that the pot should sound you are able to trace the goal from the InspectionList.
-You can analyze it by passing the oldValue of the traced goal and the option (or all options by analyzePrecise).
-Then you know that in 3 of 4 cases it sounds by knocking on the pot and this is a safe option that it would sound.
-You are working with only one index because in the real world you also don't realize the effects of all the universe.
-Only a little part.
+The project is still in the development phase and therefore the FrontEnd, which is supposed to combine all the AiLogic modules, is not really helpful yet. But the tests show that the AiLogic modules work so far.
 
-An easy Run-Method (my example must be improved) provides an Frontend to combine all of the modules.
-Starting with having goals and ending with solving by the evaluation of the AnalyzeMap.
-You also could imagine that not all options are available to try like it is in the real world.
-Because e.g. you haven't got the necessary physical strength to inspect something or missing materials.
+What may also be missing is an analysis method that combines e.g. options with positions, so that it can then be determined whether, for example, a certain option always produces the same "after value" only in combination with a certain position.
 
-You can test this Backend by the Test-Modules which are available in the project.
-Note that the Run-Frontend which combines all of the Ai-Methods is in development.
+If you want to participate in the project, you can reach me under the following mail.
 
-TODO: Inspect/Analyze instead of a single Index a part of the Vector.
-
-If you like the project, you can participate on the development and ask if you have some questions
 Mail: tbshollstein@gmail.com
 
 Wiki: https://github.com/tobi2409/MyAi/wiki
