@@ -1,13 +1,13 @@
 /**
  *
- * MyAi - VectorLogic
+ * MyAi -
  * by Tobias Hollstein 02-14-2019
  *
  */
 
 package logic;
 
-public class VectorLogic {
+public class SampleVectorLogic {
 
 	/**
 	 * change vector by this logic (-> time increases by 1)

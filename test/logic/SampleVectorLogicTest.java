@@ -5,12 +5,12 @@ import org.junit.Test;
 import testfactory.Factory;
 import junit.framework.Assert;
 
-public class VectorLogicTest {
+public class SampleVectorLogicTest {
 
 	@Test
 	public void testRunTime_Option1() {
 		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = VectorLogic.runTime(vector, 1);
+		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 1);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], true);
 		Assert.assertEquals(updatedVector[1], false);
@@ -22,7 +22,7 @@ public class VectorLogicTest {
 	@Test
 	public void testRunTime_Option2() {
 		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = VectorLogic.runTime(vector, 2);
+		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 2);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], false);
 		Assert.assertEquals(updatedVector[1], false);
@@ -34,7 +34,7 @@ public class VectorLogicTest {
 	@Test
 	public void testRunTime_Option3() {
 		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = VectorLogic.runTime(vector, 3);
+		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 3);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], true);
 		Assert.assertEquals(updatedVector[1], true);

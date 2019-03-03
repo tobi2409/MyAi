@@ -54,7 +54,7 @@ public class AiLogic {
 		}
 
 		for (int optionEntry : optionsToTest) {
-			boolean[] nextState = VectorLogic.runTime(vector, optionEntry);
+			boolean[] nextState = SampleVectorLogic.runTime(vector, optionEntry);
 			boolean indexOfNextState = nextState[index];
 
 			InspectionEntry inspectionEntry =
