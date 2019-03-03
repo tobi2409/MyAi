@@ -12,12 +12,16 @@ import logic.AiLogic;
 
 import constants.Constants;
 
+import example.SampleVectorLogic;
+
 public class AiLogicTest {
 
 	@Test
 	public void testInspect() {
+		SampleVectorLogic sampleVectorLogic = new SampleVectorLogic();
+
 		Object[] vector = Factory.createVector(10);
-		InspectionList result = AiLogic.inspect(vector, 0, new int[] {1, 2}, 2);
+		InspectionList result = AiLogic.inspect(sampleVectorLogic, vector, 0, new int[] {1, 2}, 2);
 
 		Assert.assertEquals(result.size(), 2);
 

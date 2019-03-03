@@ -5,18 +5,20 @@
  *
  */
 
-package logic;
+package example;
 
 import java.util.Arrays;
+import logic.VectorLogic;
 
-public class SampleVectorLogic {
+public class SampleVectorLogic extends VectorLogic {
 
 	/**
 	 * change vector by this logic (-> time increases by 1)
 	 * option is similar to the options you have (eg. with help of muscles) in real world to take influence to the particles
 	 **/
 
-	public static Object[] runTime(Object[] vector, int option) {
+	 @Override
+	public Object[] runTime(Object[] vector, int option) {
 		Boolean[] cloned = Arrays.copyOf(vector, vector.length, Boolean[].class);
 
 		if (option == 1) {
@@ -30,7 +32,7 @@ public class SampleVectorLogic {
 		return cloned;
 	}
 
-	private static Boolean[] runOption1(Boolean[] cloned) {
+	private Boolean[] runOption1(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
 			Boolean entry = cloned[i];
 			Boolean next = i < cloned.length - 1 && (Boolean) cloned[i + 1];
@@ -43,7 +45,7 @@ public class SampleVectorLogic {
 		return cloned;
 	}
 
-	private static Boolean[] runOption2(Boolean[] cloned) {
+	private Boolean[] runOption2(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
 			Boolean entry = (Boolean) cloned[i];
 			cloned[i] = !entry;
@@ -52,7 +54,7 @@ public class SampleVectorLogic {
 		return cloned;
 	}
 
-	private static Boolean[] runOption3(Boolean[] cloned) {
+	private Boolean[] runOption3(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
 			cloned[i] = true;
 		}

@@ -42,11 +42,11 @@ public class AiLogic {
 	 *
 	 */
 
-	public static InspectionList inspect(Object[] vector, int index, int[] optionsToTest, int times) {
-		return inspect(vector, index, optionsToTest, times, null);
+	public static InspectionList inspect(VectorLogic vectorLogic, Object[] vector, int index, int[] optionsToTest, int times) {
+		return inspect(vectorLogic, vector, index, optionsToTest, times, null);
 	}
 
-	private static InspectionList inspect(Object[] vector, int index, int[] optionsToTest, int times, InspectionEntry parent) {
+	private static InspectionList inspect(VectorLogic vectorLogic, Object[] vector, int index, int[] optionsToTest, int times, InspectionEntry parent) {
 		InspectionList result = new InspectionList();
 
 		if (times == 0) {
@@ -54,12 +54,12 @@ public class AiLogic {
 		}
 
 		for (int optionEntry : optionsToTest) {
-			Object[] nextState = SampleVectorLogic.runTime(vector, optionEntry);
+			Object[] nextState = vectorLogic.runTime(vector, optionEntry);
 			Object indexOfNextState = nextState[index];
 
 			InspectionEntry inspectionEntry =
 					InspectionEntry.createInspection(optionEntry, index, vector[index], indexOfNextState, null, parent);
-			InspectionList rec = inspect(nextState, index, optionsToTest, times - 1, inspectionEntry);
+			InspectionList rec = inspect(vectorLogic, nextState, index, optionsToTest, times - 1, inspectionEntry);
 			inspectionEntry.getChilds().addAll(rec);
 
 			result.add(inspectionEntry);
