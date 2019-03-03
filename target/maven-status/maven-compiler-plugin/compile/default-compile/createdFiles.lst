@@ -1,7 +1,0 @@
-constants/Constants.class
-logic/SampleVectorLogic.class
-inspection/InspectionList.class
-analyzemap/AnalyzeMap.class
-inspection/InspectionEntry.class
-frontends/SampleFrontEnd.class
-logic/AiLogic.class
