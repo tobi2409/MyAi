@@ -9,8 +9,8 @@ public class SampleVectorLogicTest {
 
 	@Test
 	public void testRunTime_Option1() {
-		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 1);
+		Object[] vector = Factory.createVector(5);
+		Object[] updatedVector = SampleVectorLogic.runTime(vector, 1);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], true);
 		Assert.assertEquals(updatedVector[1], false);
@@ -21,8 +21,8 @@ public class SampleVectorLogicTest {
 
 	@Test
 	public void testRunTime_Option2() {
-		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 2);
+		Object[] vector = Factory.createVector(5);
+		Object[] updatedVector = SampleVectorLogic.runTime(vector, 2);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], false);
 		Assert.assertEquals(updatedVector[1], false);
@@ -33,8 +33,8 @@ public class SampleVectorLogicTest {
 
 	@Test
 	public void testRunTime_Option3() {
-		boolean[] vector = Factory.createVector(5);
-		boolean[] updatedVector = SampleVectorLogic.runTime(vector, 3);
+		Object[] vector = Factory.createVector(5);
+		Object[] updatedVector = SampleVectorLogic.runTime(vector, 3);
 		Assert.assertEquals(updatedVector.length, 5);
 		Assert.assertEquals(updatedVector[0], true);
 		Assert.assertEquals(updatedVector[1], true);

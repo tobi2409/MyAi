@@ -10,7 +10,7 @@ import frontends.SampleFrontEnd;
 
 public class SampleFrontEndTest {
 
-  @Test
+  /*@Test
   public void testRun() {
     boolean[] vector = Factory.createVector(10);
 
@@ -41,6 +41,6 @@ public class SampleFrontEndTest {
 
     Wrapper.testInspectionEntry(result.get(5), 1, 2, true, false, null);
     Assert.assertEquals(result.get(5).getChilds().size(), 0);
-  }
+  }*/
 
 }

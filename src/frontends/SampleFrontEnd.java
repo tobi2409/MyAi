@@ -22,7 +22,7 @@ public class SampleFrontEnd {
 	 * @return
 	 */
 
-	public static InspectionList run(boolean[] vector, int[] easyIndex, int[] analyzeIndex, int[] options) {
+	/*public static InspectionList run(boolean[] vector, int[] easyIndex, int[] analyzeIndex, int[] options) {
 		InspectionList inspections = new InspectionList();
 
 		for (int element : easyIndex) {
@@ -41,6 +41,6 @@ public class SampleFrontEnd {
 		}
 
 		return inspections;
-	}
+	}*/
 
 }

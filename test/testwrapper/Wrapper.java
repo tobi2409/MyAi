@@ -6,8 +6,8 @@ import inspection.InspectionEntry;
 public class Wrapper {
 
   public static void testInspectionEntry(InspectionEntry entry,
-			int shouldIndex, int shouldOption, boolean shouldOldValue,
-			boolean shouldInspection, InspectionEntry shouldParent) {
+			int shouldIndex, int shouldOption, Object shouldOldValue,
+			Object shouldInspection, InspectionEntry shouldParent) {
 
 		Assert.assertEquals(entry.getIndex(), shouldIndex);
 		Assert.assertEquals(entry.getOption(), shouldOption);

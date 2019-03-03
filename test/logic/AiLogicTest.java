@@ -16,7 +16,7 @@ public class AiLogicTest {
 
 	@Test
 	public void testInspect() {
-		boolean[] vector = Factory.createVector(10);
+		Object[] vector = Factory.createVector(10);
 		InspectionList result = AiLogic.inspect(vector, 0, new int[] {1, 2}, 2);
 
 		Assert.assertEquals(result.size(), 2);
@@ -72,7 +72,7 @@ public class AiLogicTest {
 		analyzeMap.put(true, 5);
 		analyzeMap.put(false, 2);
 
-		Boolean result = AiLogic.getByHighestOccurence(analyzeMap);
+		Object result = AiLogic.getByHighestOccurence(analyzeMap);
 		Assert.assertEquals(result, true);
 	}
 
@@ -81,6 +81,9 @@ public class AiLogicTest {
 		InspectionList oldInspections = Factory.createInspectionList();
 
 		InspectionList result = AiLogic.traceGoal(oldInspections, true, true);
+
+		Assert.assertEquals(result.size(), 2);
+
 		Wrapper.testInspectionEntry(result.get(0), 0, 1, true, true, null);
 		Assert.assertEquals(result.get(0).getChilds().size(), 0);
 

@@ -46,7 +46,7 @@ public class AiLogic {
 		return inspect(vector, index, optionsToTest, times, null);
 	}
 
-	private static InspectionList inspect(boolean[] vector, int index, int[] optionsToTest, int times, InspectionEntry parent) {
+	private static InspectionList inspect(Object[] vector, int index, int[] optionsToTest, int times, InspectionEntry parent) {
 		InspectionList result = new InspectionList();
 
 		if (times == 0) {
@@ -54,8 +54,8 @@ public class AiLogic {
 		}
 
 		for (int optionEntry : optionsToTest) {
-			boolean[] nextState = SampleVectorLogic.runTime(vector, optionEntry);
-			boolean indexOfNextState = nextState[index];
+			Object[] nextState = SampleVectorLogic.runTime(vector, optionEntry);
+			Object indexOfNextState = nextState[index];
 
 			InspectionEntry inspectionEntry =
 					InspectionEntry.createInspection(optionEntry, index, vector[index], indexOfNextState, null, parent);
@@ -96,12 +96,12 @@ public class AiLogic {
 	 *
 	 */
 
-	public static AnalyzeMap analyze(InspectionList oldInspections, boolean valueToCompare,
+	public static AnalyzeMap analyze(InspectionList oldInspections, Object valueToCompare,
 	 					String compareProperty, int comparePropertyValue) {
 		AnalyzeMap result = new AnalyzeMap();
 
 		for (InspectionEntry inspectionEntry : oldInspections) {
-			Boolean valueOfEntry = inspectionEntry.getOldValue();
+			Object valueOfEntry = inspectionEntry.getOldValue();
 
 			int propertyValueOfEntry = 0;
 			switch (compareProperty) {
@@ -114,7 +114,7 @@ public class AiLogic {
 			}
 
 			if (valueOfEntry == valueToCompare && propertyValueOfEntry == comparePropertyValue) {
-				Boolean inspected = inspectionEntry.getInspection();
+				Object inspected = inspectionEntry.getInspection();
 				result.put(inspected);
 			}
 
@@ -154,7 +154,7 @@ public class AiLogic {
 	 *
 	 */
 
-	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, boolean valueToCompare,
+	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, Object valueToCompare,
 							int analyzeStart, int analyzeEnd, String compareProperty) {
 		AnalyzeMap result = new AnalyzeMap();
 
@@ -173,11 +173,11 @@ public class AiLogic {
 	 * @return Key by it's highest Value
 	 */
 
-	public static Boolean getByHighestOccurence(AnalyzeMap analyzeMap) {
-		Boolean keyByHighestOccurence = null;
+	public static Object getByHighestOccurence(AnalyzeMap analyzeMap) {
+		Object keyByHighestOccurence = null;
 
-		for (Entry<Boolean, Integer> entry : analyzeMap.entrySet()) {
-			Boolean key = entry.getKey();
+		for (Entry<Object, Integer> entry : analyzeMap.entrySet()) {
+			Object key = entry.getKey();
 			Integer value = entry.getValue();
 
 			if (keyByHighestOccurence == null || value > analyzeMap.get(keyByHighestOccurence)) {
@@ -205,7 +205,7 @@ public class AiLogic {
 	 *
 	 */
 
-	public static InspectionList traceGoal(InspectionList oldInspections, boolean goalValue, boolean extraQuery) {
+	public static InspectionList traceGoal(InspectionList oldInspections, Object goalValue, boolean extraQuery) {
 		InspectionList result = new InspectionList();
 
 		for (InspectionEntry inspectionEntry : oldInspections) {

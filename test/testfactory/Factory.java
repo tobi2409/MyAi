@@ -5,12 +5,12 @@ import inspection.InspectionList;
 
 public class Factory {
 
-	public static boolean[] createVector(int length) {
-		boolean[] vector = new boolean[length];
+	public static Object[] createVector(int length) {
+		Object[] vector = new Object[length];
 
 		for (int i = 0 ; i < vector.length ; i++) {
-			boolean isFalse = i >= 2 && vector[i - 1] == true && vector[i - 2] == true;
-			boolean isTrue = !isFalse;
+			Boolean isFalse = i >= 2 && (Boolean) vector[i - 1] == true && (Boolean) vector[i - 2] == true;
+			Boolean isTrue = !isFalse;
 			vector[i] = isTrue;
 		}
 

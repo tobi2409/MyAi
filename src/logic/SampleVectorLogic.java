@@ -7,6 +7,8 @@
 
 package logic;
 
+import java.util.Arrays;
+
 public class SampleVectorLogic {
 
 	/**
@@ -14,8 +16,8 @@ public class SampleVectorLogic {
 	 * option is similar to the options you have (eg. with help of muscles) in real world to take influence to the particles
 	 **/
 
-	public static boolean[] runTime(boolean[] vector, int option) {
-		boolean[] cloned = vector.clone();
+	public static Object[] runTime(Object[] vector, int option) {
+		Boolean[] cloned = Arrays.copyOf(vector, vector.length, Boolean[].class);
 
 		if (option == 1) {
 			return runOption1(cloned);
@@ -28,10 +30,11 @@ public class SampleVectorLogic {
 		return cloned;
 	}
 
-	private static boolean[] runOption1(boolean[] cloned) {
+	private static Boolean[] runOption1(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
-			boolean entry = cloned[i];
-			boolean next = i < cloned.length - 1 && cloned[i + 1];
+			Boolean entry = cloned[i];
+			Boolean next = i < cloned.length - 1 && (Boolean) cloned[i + 1];
+
 			if (entry && !next) {
 				cloned[i] = false;
 			}
@@ -40,16 +43,16 @@ public class SampleVectorLogic {
 		return cloned;
 	}
 
-	private static boolean[] runOption2(boolean[] cloned) {
+	private static Boolean[] runOption2(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
-			boolean entry = cloned[i];
+			Boolean entry = (Boolean) cloned[i];
 			cloned[i] = !entry;
 		}
 
 		return cloned;
 	}
 
-	private static boolean[] runOption3(boolean[] cloned) {
+	private static Boolean[] runOption3(Boolean[] cloned) {
 		for (int i = 0 ; i < cloned.length ; i++) {
 			cloned[i] = true;
 		}

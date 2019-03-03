@@ -1,14 +1,14 @@
 package inspection;
 
 public class InspectionEntry {
-	
+
 	private int option;
 	private int index;
-	private Boolean oldValue;
-	private Boolean inspection;
+	private Object oldValue;
+	private Object inspection;
 	private InspectionEntry parent;
 	private InspectionList childs = new InspectionList();
-	
+
 	public int getOption() {
 		return option;
 	}
@@ -25,19 +25,19 @@ public class InspectionEntry {
 		this.index = index;
 	}
 
-	public Boolean getOldValue() {
+	public Object getOldValue() {
 		return oldValue;
 	}
 
-	public void setOldValue(Boolean oldValue) {
+	public void setOldValue(Object oldValue) {
 		this.oldValue = oldValue;
 	}
 
-	public Boolean getInspection() {
+	public Object getInspection() {
 		return inspection;
 	}
 
-	public void setInspection(Boolean inspection) {
+	public void setInspection(Object inspection) {
 		this.inspection = inspection;
 	}
 
@@ -48,21 +48,21 @@ public class InspectionEntry {
 	public void setParent(InspectionEntry parent) {
 		this.parent = parent;
 	}
-	
+
 	public InspectionList getChilds() {
 		return childs;
 	}
-	
+
 	/*public static InspectionEntry createInspection_ByHighestOccurence
 		(int option, int index, Boolean oldValue, Boolean inspection_ByHighestOccurence, InspectionEntry parent) {
-		
+
 		return createInspection
 				(option, index, oldValue, inspection_ByHighestOccurence, new InspectionList(), parent);
 	}*/
-	
+
 	public static InspectionEntry createInspection
-		(int option, int index, Boolean oldValue, Boolean inspection, InspectionList childs, InspectionEntry parent) {
-		
+		(int option, int index, Object oldValue, Object inspection, InspectionList childs, InspectionEntry parent) {
+
 		InspectionEntry result = new InspectionEntry();
 		result.setOption(option);
 		result.setIndex(index);
@@ -74,5 +74,5 @@ public class InspectionEntry {
 		result.setParent(parent);
 		return result;
 	}
-	
+
 }
