@@ -42,7 +42,7 @@ public class AiLogic {
 	 *
 	 */
 
-	public static InspectionList inspect(boolean[] vector, int index, int[] optionsToTest, int times) {
+	public static InspectionList inspect(Object[] vector, int index, int[] optionsToTest, int times) {
 		return inspect(vector, index, optionsToTest, times, null);
 	}
 
