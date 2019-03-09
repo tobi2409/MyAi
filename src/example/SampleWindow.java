@@ -1,5 +1,3 @@
-// java -cp AI-0.0.1-SNAPSHOT.jar example.SampleWindow
-
 package example;
 
 import java.util.List;
