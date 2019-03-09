@@ -1,4 +1,5 @@
-# Artificial Intelligence - Sample Application by Tobias Hollstein 2019
+# Artificial Intelligence (FrameWork With Sample Application) by Tobias Hollstein 2019
+# Alpha Version
 
 A human has several options to change something in the world. So he can use his muscle power to affect other particles. If you are in the phase where you are still exploring the world, you are gaining experience and because you are pursuing certain goals based on your emotions (e.g. no hunger), some of the experiences are considered pleasant, others unpleasant. Not every action leads to the goal being achieved. When I, as a human being, decide on an action (option), I remember whether and how often this applied option has fulfilled my goal.
 
