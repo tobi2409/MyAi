@@ -6,9 +6,28 @@ import org.junit.Test;
 import testfactory.Factory;
 import testwrapper.Wrapper;
 import inspection.InspectionList;
-import frontends.SampleFrontEnd;
+import inspection.InspectionEntry;
+import example.SampleFrontEnd;
 
 public class SampleFrontEndTest {
+
+  private SampleFrontEnd sampleFrontEnd = new SampleFrontEnd();
+
+  @Test
+  public void testRun() {
+    Object[] vector = Factory.createVector(10);
+    int[] options = new int[] {1, 2};
+    InspectionEntry result = sampleFrontEnd.run(vector, 0, options, 2, false);
+    //Assert.assertEquals(result.getOldValue(), false);
+  }
+
+  @Test
+  public void testRun2() {
+    Object[] vector = Factory.createVector(10);
+    int[] options = new int[] {1, 2};
+    InspectionEntry result = sampleFrontEnd.run(vector, 0, options, 2, true);
+    //Assert.assertEquals(result, null);
+  }
 
   /*@Test
   public void testRun() {

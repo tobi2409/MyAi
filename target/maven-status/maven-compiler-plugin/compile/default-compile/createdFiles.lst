@@ -1,9 +1,0 @@
-example/SampleWindow.class
-constants/Constants.class
-logic/VectorLogic.class
-example/SampleFrontEnd.class
-inspection/InspectionList.class
-analyzemap/AnalyzeMap.class
-inspection/InspectionEntry.class
-example/SampleVectorLogic.class
-logic/AiLogic.class

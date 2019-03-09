@@ -10,8 +10,8 @@ public class Factory {
 
 		for (int i = 0 ; i < vector.length ; i++) {
 			Boolean isFalse = i >= 2 && (Boolean) vector[i - 1] == true && (Boolean) vector[i - 2] == true;
-			Boolean isTrue = !isFalse;
-			vector[i] = isTrue;
+			Boolean entry = !isFalse;
+			vector[i] = entry;
 		}
 
 		return vector;

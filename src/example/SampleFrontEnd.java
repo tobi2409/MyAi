@@ -1,4 +1,4 @@
-package frontends;
+package example;
 
 import logic.AiLogic;
 import inspection.InspectionEntry;
@@ -7,6 +7,9 @@ import analyzemap.AnalyzeMap;
 import constants.Constants;
 
 public class SampleFrontEnd {
+
+	private SampleVectorLogic sampleVectorLogic = new SampleVectorLogic();
+	private InspectionList allInspections = new InspectionList();
 
   /**
 	 *
@@ -21,6 +24,27 @@ public class SampleFrontEnd {
 	 * @param options
 	 * @return
 	 */
+
+	 //1.) sample-vector
+	 //2.) inspect vector (Test-Phase)
+	 //3.) define goal
+	 //4.) trace goal and meanwhile analyze vector with the traced oldValue until goal has highest probability
+
+	public InspectionEntry run(Object[] vector, int index, int[] options, int times, Object goal) {
+		allInspections.addAll(AiLogic.inspect(sampleVectorLogic, vector, index, options, times));
+		InspectionList filteredByGoals = AiLogic.traceGoal(allInspections, goal, true);
+
+		for (InspectionEntry entry : filteredByGoals) {
+			AnalyzeMap analyzeMap = AiLogic.analyze(allInspections, entry.getOldValue(), Constants.OPTION, entry.getOption());
+
+			Object newValueByHighestOccurence = AiLogic.getByHighestOccurence(analyzeMap);
+			if (newValueByHighestOccurence == goal) {
+				return entry;
+			}
+		}
+
+		return null;
+	}
 
 	/*public static InspectionList run(boolean[] vector, int[] easyIndex, int[] analyzeIndex, int[] options) {
 		InspectionList inspections = new InspectionList();
