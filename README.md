@@ -1,6 +1,9 @@
 # Artificial Intelligence (FrameWork With Sample Application) by Tobias Hollstein 2019
 # Alpha Version
 
+NOTE: Try to understand the following graphic
+NOTE: more examples will follow in next versions
+
 A human has several options to change something in the world. So he can use his muscle power to affect other particles. If you are in the phase where you are still exploring the world, you are gaining experience and because you are pursuing certain goals based on your emotions (e.g. no hunger), some of the experiences are considered pleasant, others unpleasant. Not every action leads to the goal being achieved. When I, as a human being, decide on an action (option), I remember whether and how often this applied option has fulfilled my goal.
 
 The sample world in this application is a vector with truth values, so you can keep it simple for now. There are 3 options (actions) how to influence this world. The first option causes any true value in the vector to get wrong if the value on the next position is wrong. The second option inverts the values. The third option sets all values to true.
