@@ -71,6 +71,16 @@ public class AiLogicTest {
 	}
 
 	@Test
+	public void testAnalyzePrecise2() {
+		InspectionList oldInspections = Factory.createInspectionList();
+		AnalyzeMap result = AiLogic.analyzePrecise(oldInspections, true, new int[] {1, 2}, Constants.OPTION);
+
+		Assert.assertEquals(result.size(), 2);
+		Assert.assertEquals((int) result.get(true), 1);
+		Assert.assertEquals((int) result.get(false), 2);
+	}
+
+	@Test
 	public void testGetByHighestOccurence() {
 		AnalyzeMap analyzeMap = new AnalyzeMap();
 		analyzeMap.put(true, 5);

@@ -1,6 +1,6 @@
 /**
  *
- * MyAi - Logic
+ * MyAi - Core Logic
  * by Tobias Hollstein 02-14-2019
  *
  */
@@ -156,10 +156,20 @@ public class AiLogic {
 
 	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, Object valueToCompare,
 							int analyzeStart, int analyzeEnd, String compareProperty) {
+		int[] analyzeIndices = new int[analyzeEnd - analyzeStart + 1];
+		for (int i = analyzeStart ; i <= analyzeEnd ; i++) {
+			analyzeIndices[i - 1] = i;
+		}
+
+		return analyzePrecise(oldInspections, valueToCompare, analyzeIndices, compareProperty);
+	}
+
+	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, Object valueToCompare,
+							int[] analyzeIndices, String compareProperty) {
 		AnalyzeMap result = new AnalyzeMap();
 
-		for (int i = analyzeStart ; i <= analyzeEnd ; i++) {
-			AnalyzeMap analyzeMap = analyze(oldInspections, valueToCompare, compareProperty, i);
+		for (int index : analyzeIndices) {
+			AnalyzeMap analyzeMap = analyze(oldInspections, valueToCompare, compareProperty, index);
 			result.putAll(analyzeMap);
 		}
 
