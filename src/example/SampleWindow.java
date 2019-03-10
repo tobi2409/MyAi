@@ -1,9 +1,5 @@
 package example;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Arrays;
-
 import inspection.InspectionEntry;
 
 import javafx.application.Application;
@@ -13,19 +9,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.geometry.Orientation;
 import javafx.event.EventHandler;
 import javafx.event.ActionEvent;
 import javafx.scene.text.Text;
-import javafx.collections.ListChangeListener;
-import javafx.scene.control.cell.CheckBoxListCell;
-import javafx.util.Callback;
+import javafx.scene.text.Font;
 import javafx.beans.value.ObservableValue;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.CheckBox;
 import javafx.beans.value.ChangeListener;
 
@@ -35,17 +23,21 @@ public class SampleWindow extends Application {
 
   private Object[] vector = new Object[] {true, true, false, true, true, false, true, true, false, true};
 
+  public static int index = 0;
+  public static boolean goal = false;
+
   private VBox resultView = new VBox();
 
   public void start(Stage primaryStage) {
-    BorderPane borderPane = new BorderPane();
+    final BorderPane borderPane = new BorderPane();
 
     HBox menuBar = new HBox();
 
     Button runButton = new Button("Run");
     runButton.setOnAction(new EventHandler<ActionEvent>() {
       @Override public void handle(ActionEvent e) {
-        onRun();
+        resultView = onRun();
+        borderPane.setBottom(resultView);
       }
     });
 
@@ -56,10 +48,22 @@ public class SampleWindow extends Application {
       }
     });
 
-    Button optionSimulatorButton = new Button("What are Options?");
     Button exitButton = new Button("Exit");
+    exitButton.setOnAction(new EventHandler<ActionEvent>() {
+      @Override public void handle(ActionEvent e) {
+        primaryStage.close();
+      }
+    });
 
-    menuBar.getChildren().addAll(runButton, settingsButton, optionSimulatorButton, exitButton);
+    menuBar.getChildren().addAll(runButton, settingsButton, exitButton);
+
+    VBox centerPane = new VBox();
+    Text vectorInfoText1 = new Text("Vector (= your world):");
+    Text vectorInfoText2 = new Text("In this case (SampleVectorLogic) the entries of the world are Booleans, which can be changed by options.");
+    Text vectorInfoText3 = new Text("oldState -> change world by options -> newState");
+    Text vectorInfoText4 = new Text("Change the state of the vector or change the goal, the focus index");
+    Text vectorInfoText5 = new Text("Then you will see the old state for the focus index as well as the necessary option so that the probability of reaching the goal is high.");
+    Text vectorInfoText6 = new Text("Focus Index is important because in the real world you also can't see the changes for every place.");
 
     HBox checkBoxPane = new HBox();
     for (int i = 0 ; i < vector.length ; i++) {
@@ -78,20 +82,25 @@ public class SampleWindow extends Application {
       checkBoxPane.getChildren().add(checkBox);
     }
 
-    borderPane.setTop(menuBar);
-    borderPane.setCenter(checkBoxPane);
-    borderPane.setBottom(resultView);
+    centerPane.getChildren().addAll(vectorInfoText1, vectorInfoText2, vectorInfoText3, vectorInfoText4, vectorInfoText5, vectorInfoText6, checkBoxPane);
 
-    Scene scene = new Scene(borderPane, 500, 100);
+    borderPane.setTop(menuBar);
+    borderPane.setCenter(centerPane);
+
+    Scene scene = new Scene(borderPane, 900, 200);
     primaryStage.setScene(scene);
-    //primaryStage.setTitle("MyAi - Example")
+    primaryStage.setTitle("MyAi - Example");
     primaryStage.show();
   }
 
-  private void onRun() {
-    InspectionEntry inspectionEntry = sampleFrontEnd.run(vector, 0, new int[] {1, 2}, 2, false);
+  private VBox onRun() {
+    VBox resultView = new VBox();
 
-    Text headLine = new Text("Possibility for high probability of defined goal");
+    InspectionEntry inspectionEntry = sampleFrontEnd.run(vector, index, new int[] {1, 2}, 2, goal);
+
+    Text headLine = new Text("Possibility for high probability of defined goal (Focus Index: " + index + "; Goal: " + goal + ")");
+    Font font = new Font(15);
+    headLine.setFont(font);
     resultView.getChildren().add(headLine);
 
     Text oldValue = new Text("oldValue: " + inspectionEntry.getOldValue());
@@ -99,6 +108,8 @@ public class SampleWindow extends Application {
 
     Text option = new Text("option: " + inspectionEntry.getOption());
     resultView.getChildren().add(option);
+
+    return resultView;
   }
 
   private void onSettings() {

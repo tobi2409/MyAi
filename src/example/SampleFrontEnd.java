@@ -14,7 +14,12 @@ public class SampleFrontEnd {
   /**
 	 *
 	 * Example Function to combine all Modules of MyAi
-   * TODO: must be improved!!
+	 *
+	 * 1.) sample-vector
+	 * 2.) inspect vector (Test-Phase)
+	 * 3.) define goal
+	 * 4.) trace goal and meanwhile analyze vector with the traced oldValue until goal has highest probability
+	 *
 	 *
 	 * @param vector
 	 *
@@ -24,11 +29,6 @@ public class SampleFrontEnd {
 	 * @param options
 	 * @return
 	 */
-
-	 //1.) sample-vector
-	 //2.) inspect vector (Test-Phase)
-	 //3.) define goal
-	 //4.) trace goal and meanwhile analyze vector with the traced oldValue until goal has highest probability
 
 	public InspectionEntry run(Object[] vector, int index, int[] options, int times, Object goal) {
 		allInspections.addAll(AiLogic.inspect(sampleVectorLogic, vector, index, options, times));
