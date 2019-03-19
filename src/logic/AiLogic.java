@@ -176,6 +176,19 @@ public class AiLogic {
 		return result;
 	}
 
+	public static AnalyzeMap analyzePrecise_Complete(InspectionList oldInspections, Object valueToCompare,
+							int[] analyzeIndices, String compareProperty) {
+		for (int index : analyzeIndices) {
+			AnalyzeMap analyzeMap = analyze(oldInspections, valueToCompare, compareProperty, index);
+
+			if (analyzeMap.size() == 1) {
+				return analyzeMap;
+			}
+		}
+
+		return new AnalyzeMap();
+	}
+
 	/**
 	 * gets Key from AnalyzeMap by it's highest Value
 	 *

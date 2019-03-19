@@ -1,0 +1,16 @@
+example/SampleWindow.class
+example/SampleWindow$1.class
+logic/VectorLogic.class
+inspection/InspectionList.class
+inspection/InspectionEntry.class
+example/SettingsWindow.class
+example/SampleVectorLogic.class
+example/SampleWindow$2.class
+example/SettingsWindow$2.class
+constants/Constants.class
+example/SettingsWindow$1.class
+example/SampleFrontEnd.class
+example/SampleWindow$3.class
+analyzemap/AnalyzeMap.class
+example/SampleWindow$4.class
+logic/AiLogic.class
