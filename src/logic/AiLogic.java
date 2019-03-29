@@ -9,6 +9,7 @@ package logic;
 
 import java.util.List;
 import java.util.Map.Entry;
+import java.util.Arrays;
 
 import analyzemap.AnalyzeMap;
 import inspection.InspectionEntry;
@@ -164,15 +165,21 @@ public class AiLogic {
 		return analyzePrecise(oldInspections, valueToCompare, analyzeIndices, compareProperty);
 	}
 
+
+//TODO: improve code
 	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, Object valueToCompare,
 							int[] analyzeIndices, String compareProperty) {
 		AnalyzeMap result = new AnalyzeMap();
 
-		for (int index : analyzeIndices) {
-			AnalyzeMap analyzeMap = analyze(oldInspections, valueToCompare, compareProperty, index);
-			result.putAll(analyzeMap);
+		if (analyzeIndices.length == 0) {
+			return result;
 		}
 
+		int first = Arrays.copyOf(analyzeIndices, 1)[0];
+		int[] rest = Arrays.copyOfRange(analyzeIndices, 1, analyzeIndices.length);
+
+		result = analyze(oldInspections, valueToCompare, compareProperty, first);
+		result.putAll(analyzePrecise(oldInspections, valueToCompare, rest, compareProperty));
 		return result;
 	}
 
