@@ -166,34 +166,16 @@ public class AiLogic {
 	}
 
 
-//TODO: improve code
 	public static AnalyzeMap analyzePrecise(InspectionList oldInspections, Object valueToCompare,
 							int[] analyzeIndices, String compareProperty) {
 		AnalyzeMap result = new AnalyzeMap();
 
-		if (analyzeIndices.length == 0) {
-			return result;
-		}
-
-		int first = Arrays.copyOf(analyzeIndices, 1)[0];
-		int[] rest = Arrays.copyOfRange(analyzeIndices, 1, analyzeIndices.length);
-
-		result = analyze(oldInspections, valueToCompare, compareProperty, first);
-		result.putAll(analyzePrecise(oldInspections, valueToCompare, rest, compareProperty));
-		return result;
-	}
-
-	public static AnalyzeMap analyzePrecise_Complete(InspectionList oldInspections, Object valueToCompare,
-							int[] analyzeIndices, String compareProperty) {
 		for (int index : analyzeIndices) {
 			AnalyzeMap analyzeMap = analyze(oldInspections, valueToCompare, compareProperty, index);
-
-			if (analyzeMap.size() == 1) {
-				return analyzeMap;
-			}
+			result.putAll(analyzeMap);
 		}
 
-		return new AnalyzeMap();
+		return result;
 	}
 
 	/**

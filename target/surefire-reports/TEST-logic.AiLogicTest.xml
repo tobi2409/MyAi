@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="8" failures="0" name="logic.AiLogicTest" time="0" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="logic.AiLogicTest" time="0.001" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64"/>
@@ -62,10 +62,9 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="logic.AiLogicTest" name="testAnalyze_Option2" time="0"/>
-  <testcase classname="logic.AiLogicTest" name="testAnalyzePrecise2" time="0"/>
+  <testcase classname="logic.AiLogicTest" name="testAnalyzePrecise2" time="0.001"/>
   <testcase classname="logic.AiLogicTest" name="testAnalyze" time="0"/>
   <testcase classname="logic.AiLogicTest" name="testAnalyzePrecise" time="0"/>
-  <testcase classname="logic.AiLogicTest" name="testAnalyzePrecise_Complete" time="0"/>
   <testcase classname="logic.AiLogicTest" name="testTraceGoal" time="0"/>
   <testcase classname="logic.AiLogicTest" name="testGetByHighestOccurence" time="0"/>
   <testcase classname="logic.AiLogicTest" name="testInspect" time="0"/>

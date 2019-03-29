@@ -80,17 +80,6 @@ public class AiLogicTest {
 	}
 
 	@Test
-	public void testAnalyzePrecise_Complete() {
-		InspectionList oldInspections = Factory.createInspectionList();
-
-		int[] indices = new int[] {1, 2};
-		AnalyzeMap result = AiLogic.analyzePrecise_Complete(oldInspections, true, indices, Constants.OPTION);
-
-		Assert.assertEquals(result.size(), 1);
-		Assert.assertEquals((int) result.get(false), 2);
-	}
-
-	@Test
 	public void testAnalyzePrecise2() {
 		InspectionList oldInspections = Factory.createInspectionList();
 		AnalyzeMap result = AiLogic.analyzePrecise(oldInspections, true, new int[] {1, 2}, Constants.OPTION);
